@@ -1,0 +1,12 @@
+(rule
+ (targets branch_cordova.ml)
+ (deps branch_cordova.mli)
+ (action (run %{bin:gen_js_api} %{deps})))
+
+(library
+ (public_name branch-cordova-sdk)
+ (name branch_cordova)
+ (modes byte)
+ (libraries gen_js_api)
+ ; (preprocess (pps gen_js_api))
+)

@@ -1,0 +1,16 @@
+opam-version: "2.0"
+version: "1.0"
+maintainer:   "Thibaut Gudin <tgudin@besport.com>"
+authors:      "Thibaut Gudin <tgudin@besport.com>"
+homepage:     "https://github.com/Thibaut-Gudin/ocaml-branch-cordova-sdk"
+bug-reports:  "https://github.com/Thibaut-Gudin/ocaml-branch-cordova-sdk/issues"
+dev-repo:     "https://github.com/Thibaut-Gudin/ocaml-branch-cordova-sdk"
+license:      "LGPL-2.1 with OCaml linking exception"
+description: "Binding to 'Branch' for Cordova, PhoneGap and Ionic using gen_js_api"
+synopsis: "Binding to 'Branch' for Cordova, PhoneGap and Ionic using gen_js_api"
+build: [[ "dune" "build" "-j" jobs "-p" name "@install" ]]
+depends: [
+  "ocaml" { >= "4.08.0" }
+  "dune" {>= "2.7"}
+  "gen_js_api"
+  ]
