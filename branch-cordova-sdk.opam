@@ -13,4 +13,6 @@ depends: [
   "ocaml" { >= "4.08.0" }
   "dune" {>= "2.7"}
   "gen_js_api"
+  "js_of_ocaml"
+  "js_of_ocaml-ppx"
   ]
