@@ -27,8 +27,13 @@ val send_branch_event : name:string -> Ojs.t -> unit
 
 type data
 
-val init_session_then : (data -> unit) -> unit
-  [@@js.global "Branch.initSession().then"]
+module InitSession : sig
+  type t
+
+  val init_session : unit -> t [@@js.global "Branch.initSession"]
+
+  val then_ : t -> (data -> unit) -> unit [@@js.call]
+end
 
 val get_clicked_branch_link : data -> bool [@@js.get "clicked_branch_link"]
 
