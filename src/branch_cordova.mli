@@ -36,7 +36,7 @@ module InitSession : sig
 end
 
 val get_clicked_branch_link : data -> bool option
-  [@@js.get "clicked_branch_link"]
+  [@@js.get "+clicked_branch_link"]
 
 val get_canonical_url : data -> string option [@@js.get "$canonical_url"]
 
@@ -44,8 +44,8 @@ val get_non_branch_link : data -> string option [@@js.get "+non_branch_link"]
 
 val get_match_guaranteed : data -> bool option [@@js.get "+match_guaranteed"]
 
-val get_campaign : data -> string option [@@js.get "campaign"]
+val get_campaign : data -> string option [@@js.get "~campaign"]
 
-val get_channel : data -> string option [@@js.get "channel"]
+val get_channel : data -> string option [@@js.get "~channel"]
 
-val get_feature : data -> string option [@@js.get "feature"]
+val get_feature : data -> string option [@@js.get "~feature"]
