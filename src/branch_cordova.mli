@@ -35,16 +35,17 @@ module InitSession : sig
   val then_ : t -> (data -> unit) -> unit [@@js.call]
 end
 
-val get_clicked_branch_link : data -> bool [@@js.get "clicked_branch_link"]
+val get_clicked_branch_link : data -> bool option
+  [@@js.get "clicked_branch_link"]
 
-val get_canonical_url : data -> string [@@js.get "$canonical_url"]
+val get_canonical_url : data -> string option [@@js.get "$canonical_url"]
 
-val get_non_branch_link : data -> string [@@js.get "+non_branch_link"]
+val get_non_branch_link : data -> string option [@@js.get "+non_branch_link"]
 
-val get_match_guaranteed : data -> bool [@@js.get "+match_guaranteed"]
+val get_match_guaranteed : data -> bool option [@@js.get "+match_guaranteed"]
 
-val get_campaign : data -> string [@@js.get "campaign"]
+val get_campaign : data -> string option [@@js.get "campaign"]
 
-val get_channel : data -> string [@@js.get "channel"]
+val get_channel : data -> string option [@@js.get "channel"]
 
-val get_feature : data -> string [@@js.get "feature"]
+val get_feature : data -> string option [@@js.get "feature"]
