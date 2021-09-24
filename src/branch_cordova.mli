@@ -27,13 +27,25 @@ val send_branch_event : name:string -> Ojs.t -> unit
 
 type data
 
-val init_session_then : (data -> unit) -> unit
-  [@@js.global "Branch.initSession().then"]
+module InitSession : sig
+  type t
 
-val get_clicked_branch_link : data -> bool [@@js.get "clicked_branch_link"]
+  val init_session : unit -> t [@@js.global "Branch.initSession"]
 
-val get_canonical_url : data -> string [@@js.get "$canonical_url"]
+  val then_ : t -> (data -> unit) -> unit [@@js.call]
+end
 
-val get_non_branch_link : data -> string [@@js.get "+non_branch_link"]
+val get_clicked_branch_link : data -> bool option
+  [@@js.get "+clicked_branch_link"]
 
-(*val get_form_data : data -> x:string -> string [@@js.get x]*)
+val get_canonical_url : data -> string option [@@js.get "$canonical_url"]
+
+val get_non_branch_link : data -> string option [@@js.get "+non_branch_link"]
+
+val get_match_guaranteed : data -> bool option [@@js.get "+match_guaranteed"]
+
+val get_campaign : data -> string option [@@js.get "~campaign"]
+
+val get_channel : data -> string option [@@js.get "~channel"]
+
+val get_feature : data -> string option [@@js.get "~feature"]
